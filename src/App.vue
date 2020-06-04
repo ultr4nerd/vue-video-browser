@@ -1,7 +1,10 @@
 <template>
   <div class="container">
     <search-bar @termChange="onTermChange"></search-bar>
-    <video-list :videos="videos"></video-list>
+    <div class="row">
+      <video-detail :video="selectedVideo" />
+      <video-list :videos="videos" @videoSelect="onVideoSelect" />
+    </div>
   </div>
 </template>
 
@@ -9,16 +12,18 @@
 import axios from "axios";
 import SearchBar from "./components/SearchBar.vue";
 import VideoList from "./components/VideoList.vue";
+import VideoDetail from "./components/VideoDetail.vue";
 
 export default {
   name: "App",
-  components: { SearchBar, VideoList },
+  components: { SearchBar, VideoList, VideoDetail },
   data() {
-    return {
-      videos: []
-    };
+    return { videos: [], selectedVideo: null };
   },
   methods: {
+    onVideoSelect(video) {
+      this.selectedVideo = video;
+    },
     async onTermChange(searchTerm) {
       const { data } = await axios.get(
         "https://www.googleapis.com/youtube/v3/search",

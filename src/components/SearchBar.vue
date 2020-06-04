@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input class="input is-rounded" @input="onInput" />
+    <input @input="onInput" />
   </div>
 </template>
 
