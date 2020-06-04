@@ -1,6 +1,6 @@
 <template>
   <div>
-    <input @input="onInput" />
+    <input class="input is-rounded" @input="onInput" />
   </div>
 </template>
 
@@ -14,3 +14,15 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+
+input {
+  width: 75%;
+}
+
+div {
+  text-align: center;
+  margin: 20px;
+}
+</style>
