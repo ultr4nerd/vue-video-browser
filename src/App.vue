@@ -1,7 +1,7 @@
 <template>
   <div>
     <search-bar @termChange="onTermChange"></search-bar>
-    <video-list :videos="videos"></video-list>  
+    <video-list :videos="videos"></video-list>
   </div>
 </template>
 
